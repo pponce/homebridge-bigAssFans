@@ -11,7 +11,7 @@ module.exports = function(homebridge) {
   UUIDGen = homebridge.hap.uuid;
 
   homebridge.registerPlatform("homebridge-bigAssFans", "BigAssFans", BigAssFansPlatform, true);
-  homebridge.registerAccessory("homebridge-bigAssFan", "BigAssFan", BigAssFanAccessory);
+  homebridge.registerAccessory("homebridge-bigAssFan", "BigAssFans", BigAssFanAccessory);
 }
 
 function BigAssFansPlatform(log, config, api) {
@@ -321,9 +321,9 @@ function BigAssFanAccessory(log, config, existingAccessory) {
   this.getServices = function() {
     return [this.lightService, this.fanService, this.occupancyService];
   }
-  if (existingAccessory){
-    existingAccessory.updateReachability(true);
-  }
+//  if (existingAccessory){
+//    existingAccessory.updateReachability(true);
+//  }
 }
 
 BigAssFanAccessory.prototype.getStateFactory = function(propertyToWrap, subProperty, outputMapping) {
